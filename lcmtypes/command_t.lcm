@@ -1,0 +1,32 @@
+package procman3_lcm_messages;
+
+struct command_t
+{
+    // id of the command
+    string  name;
+
+    // group of the command
+    string group;
+
+    // sherrif sending the command
+    string sheriff;
+
+    // deputy that should comply with the command
+    string deputy;
+
+    // deputy command start, stop, delete
+    string command ;
+
+    // command to execute
+    string proc_command;
+
+    // auto restart flags for the commands
+    boolean auto_restart; 
+
+    // realtime priority for the process
+    boolean realtime;
+
+    // run the procces in a insolated cpu set on the deputy
+    boolean cpuset;
+
+}
