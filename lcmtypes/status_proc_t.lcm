@@ -1,0 +1,35 @@
+package procman3_lcm_messages;
+
+struct report_proc_t 
+{
+
+    // id of the command
+    string  name;
+
+    // group of the command
+    string group;
+
+    // deputy running execting the proccess
+    string deputy;
+
+    // status of the procces 0: stoped, 1 running
+    int status;
+ 
+    string errors;
+
+    // cpu usage of the procces in % of one cpu [0,1]
+    float cpu;
+    
+    // memory used in KB
+    int32_t mem;
+
+    // priority asigned to the process -1 if stopped
+    int32_t priority;
+
+    // os pid of the procces -1 if stopped
+    int32_t pid;
+
+    // auto restart flag asigned to the proccess
+    boolean auto_restart;
+
+}
