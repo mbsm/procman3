@@ -1,0 +1,16 @@
+package procman3_messages;
+
+struct deputy_procs_t 
+{
+    // useconds since Unix Epoch
+    int64_t timestamp; 
+
+    // deputy name
+    string deputy;
+
+    // number of procs of the deputy
+    int32_t num_procs;
+
+    //procs
+    proc_info_t procs[num_procs];
+}

@@ -1,8 +1,9 @@
-package procman3_lcm_messages;
-struct output_proc_t
+package procman3_messages;
+
+struct proc_output_t
 {
     int64_t timestamp;
-    string id;
+    string name;
     string deputy;
     string group;
     string stdout;

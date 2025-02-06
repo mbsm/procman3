@@ -1,8 +1,7 @@
-package procman3_lcm_messages;
+package procman3_messages;
 
-struct report_proc_t 
+struct proc_info_t 
 {
-
     // id of the command
     string  name;
 
@@ -13,8 +12,9 @@ struct report_proc_t
     string deputy;
 
     // status of the procces 0: stoped, 1 running
-    int status;
+    string status;
  
+    // errors 
     string errors;
 
     // cpu usage of the procces in % of one cpu [0,1]
@@ -31,5 +31,7 @@ struct report_proc_t
 
     // auto restart flag asigned to the proccess
     boolean auto_restart;
+
+    int8_t exit_code;
 
 }

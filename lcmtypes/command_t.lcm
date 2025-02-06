@@ -1,4 +1,4 @@
-package procman3_lcm_messages;
+package procman3_messages;
 
 struct command_t
 {
@@ -25,8 +25,5 @@ struct command_t
 
     // realtime priority for the process
     boolean realtime;
-
-    // run the procces in a insolated cpu set on the deputy
-    boolean cpuset;
 
 }
