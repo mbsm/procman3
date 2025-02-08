@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import os
 import time
 import lcm
@@ -52,10 +53,15 @@ def set_nonblocking(fd):
 
 
 def is_running(proc):
-    try:
-        return proc.poll() is None
-    except psutil.NoSuchProcess:
+    if proc is None:    
         return False
+    
+    for process in psutil.process_iter(['pid', 'name']):
+        if process.info['pid'] == proc.pid :
+            return True
+    return False
+    
+   
 
 
 
@@ -74,6 +80,10 @@ class Deputy:
         self.proc_outputs_channel = config['proc_outputs_channel']
         self.deputy_procs_channel = config['deputy_procs_channel']
         self.stop_timeout = config['stop_timeout']
+        
+        self.last_publish_time = 0
+        self.last_net_tx = 0
+        self.last_net_rx = 0
         
         self.monitor_timer = Timer(config['monitor_interval'])
         self.output_timer = Timer(config['output_interval'])
@@ -99,60 +109,83 @@ class Deputy:
         logging.info(f"Command handler: Received command: {msg.command} for process: {msg.proc_command}")
         group = msg.group
         
-        if msg.command == "start_process":
-            self.start_process(msg.name, msg.proc_command, msg.auto_restart, msg.realtime, group)
+        
+        if msg.command == "create_process":
+            self.create_process(msg.name, msg.proc_command, msg.auto_restart, msg.realtime, group)
+        
+        elif msg.command == "start_process":
+            self.start_process(msg.name)
+            
         elif msg.command == "stop_process":
             self.stop_process(msg.name)
+                
         elif msg.command == "delete_process":
             self.delete_process(msg.name)
+            
         else:
             logging.warning(f"Command handler: Unknown command: {msg.command} for process: {msg.proc_command}")
 
-
-    def start_process(self, process_name, proc_command, restart_on_failure, realtime, group):
+    def create_process(self, process_name, proc_command, restart_on_failure, realtime, group):
         
+        # if proc exist first we stop it, then we modify the process
         if process_name in self.processes:
             proc_info = self.processes[process_name]
             proc = proc_info['proc']
             if is_running(proc):
-                logging.info(f"Start Process: Process {process_name} is already running with PID {proc.pid}. Skipping start.")
-                return
-            else:
-                logging.warning(f"Start Process: Process {process_name} is tracked but not running. Restarting process.")
-    
-        logging.info(f"Start Process: Starting process: {process_name} with command: {proc_command}")
-        
-        # create the process in the process table
-        self.processes[process_name] = {'proc': None, 'cmd': proc_command,'restart': restart_on_failure,
+                self.stop_process(process_name)
+                
+        self.processes[process_name] = {'proc': None, 'cmd': proc_command,'restart': restart_on_failure, 'realtime': realtime,
                                         'exit_code': -1, 'group': group, 'errors': '', 'status': 'T',
                                         'stdout': '', 'stderr': ''} 
         
-        try:
-            proc = psutil.Popen([proc_command], stdout=PIPE, stderr=PIPE, text=True) # start the process text=True to get text output
-            set_nonblocking(proc.stdout) # Set non-blocking mode for stdout
-            set_nonblocking(proc.stderr) # Set non-blocking mode for stderr
+        logging.info(f"Create Process: Created process: {process_name} with command: {proc_command}")
             
-            # update the process table with the new process
-            self.processes[process_name]['proc'] = proc
-            self.processes[process_name]['status'] = 'R'
-            logging.info(f"Start Process: Started process: {process_name} with PID {proc.pid}")
-
-            if realtime:
-                try:
-                    os.sched_setscheduler(proc.pid, os.SCHED_FIFO, os.sched_param(1))
-                    logging.info(f"Start Process: Set real-time priority and FIFO scheduler for process: {process_name} with PID {proc.pid}")
-                except PermissionError:
-                    logging.error(f"Start Process: Failed to set real-time priority for process {process_name}: Permission denied.")
-                    self.processes[process_name]['errors'] = f"Failed to set real-time priority for process {process_name}: Permission denied."
-                except Exception as e:
-                    logging.error(f"Start Process: Failed to set real-time priority for process {process_name}: {e}")
-                    self.processes[process_name]['errors'] = str(e)
-
-        except Exception as e:
-            logging.error(f"Start Process: Failed to start process {process_name}: {e}")
-            self.processes[process_name]['status'] = 'S'
-            self.processes[process_name]['errors'] = str(e)
+            
+    def start_process(self, process_name):
         
+        if process_name not in self.processes:
+            logging.warning(f"Start Process: Process {process_name} not found in the process table. Ignoring command.")
+            return
+       
+        # here the process exists in the process table, check if it is running
+        proc_info = self.processes[process_name]
+        proc = proc_info['proc']
+        proc_command = proc_info['cmd']
+        realtime = proc_info['realtime']
+        
+        if is_running(proc):    
+            logging.info(f"Start Process: Process {process_name} is already running with PID {proc.pid}. Skipping start.")
+        
+        else:
+            #start the process
+            logging.info(f"Start Process: Starting process: {process_name} with command: {proc_command}")      
+            try:
+                proc = psutil.Popen([proc_command], stdout=PIPE, stderr=PIPE, text=True) # start the process text=True to get text output
+                set_nonblocking(proc.stdout) # Set non-blocking mode for stdout
+                set_nonblocking(proc.stderr) # Set non-blocking mode for stderr
+                
+                # update the process table with the new process
+                self.processes[process_name]['proc'] = proc
+                self.processes[process_name]['status'] = 'R'
+                logging.info(f"Start Process: Started process: {process_name} with PID {proc.pid}")
+
+                if realtime:
+                    try:
+                        os.sched_setscheduler(proc.pid, os.SCHED_FIFO, os.sched_param(1))
+                        logging.info(f"Start Process: Set real-time priority and FIFO scheduler for process: {process_name} with PID {proc.pid}")
+                    except PermissionError:
+                        logging.error(f"Start Process: Failed to set real-time priority for process {process_name}: Permission denied.")
+                        self.processes[process_name]['errors'] = f"Failed to set real-time priority for process {process_name}: Permission denied."
+                    except Exception as e:
+                        logging.error(f"Start Process: Failed to set real-time priority for process {process_name}: {e}")
+                        self.processes[process_name]['errors'] = str(e)
+
+            except Exception as e:
+                logging.error(f"Start Process: Failed to start process {process_name}: {e}")
+                self.processes[process_name]['status'] = 'S'
+                self.processes[process_name]['errors'] = str(e)
+        
+    
     def stop_process(self, process_name):
         if process_name in self.processes:
             proc_info = self.processes[process_name]
@@ -200,7 +233,7 @@ class Deputy:
         proc = procces['proc']
                
         # check if the process is stoped and update the exit code in the process table
-        if procces['status'] == 'T':
+        if proc and procces['status'] == 'T':
             procces['exit_code'] = proc.returncode
             return
     
@@ -213,7 +246,7 @@ class Deputy:
                 cmd = procces['cmd']
                 if procces['restart']:
                     logging.info(f"Monitor Process: Restarting process {process_name}.")
-                    self.start_process(process_name, cmd, procces['restart'], False, procces['group'])
+                    self.start_process(process_name)
             else:
                 #logging.info(f"Monitor Process: Process {process_name} is running.")
                 while True:
@@ -231,13 +264,31 @@ class Deputy:
                     
     
     def publish_deputy_info(self):
+        
+        #time
+        current_time = time.time()
+        time_diff = current_time - self.last_publish_time 
+        self.last_publish_time = current_time
+        
+        # net io
+        net_io = psutil.net_io_counters()
+        net_tx = net_io.bytes_sent
+        net_tx_diff = net_tx - self.last_net_tx
+        self.last_net_tx = net_tx
+        
+        net_rx = net_io.bytes_recv
+        net_rx_diff = net_rx - self.last_net_rx
+        self.last_net_rx = net_rx
+        
+        sent_kbps = net_tx_diff/time_diff
+        recv_kbps = net_rx_diff/time_diff
+        
+
         # Gather system metrics
         cpu_usage = psutil.cpu_percent(interval=None) / 100.0  # Non-blocking
         mem_usage = psutil.virtual_memory().percent / 100.0
-        net_io = psutil.net_io_counters()
-        network_sent = net_io.bytes_sent / 1024.0
-        network_recv = net_io.bytes_recv / 1024.0
         uptime = int(time.time() - psutil.boot_time())  # Convert to milliseconds
+        
 
         # Create status message
         msg = deputy_info_t()
@@ -247,8 +298,8 @@ class Deputy:
         msg.num_procs = len(self.processes)
         msg.cpu_usage = cpu_usage
         msg.mem_usage = mem_usage
-        msg.network_sent = int(network_sent)
-        msg.network_recv = int(network_recv)
+        msg.network_sent = sent_kbps/1024
+        msg.network_recv = recv_kbps/1024
         msg.uptime = uptime
 
         # Send status message over LCM

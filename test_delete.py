@@ -1,21 +1,23 @@
 #!/usr/bin/env python3
 import lcm
-from procman3_messages import command_t
 import socket
+from procman3_messages import command_t
     
 
 def main():
     lc = lcm.LCM()
     msg = command_t()
     msg.name = "UKF Node"
-    msg.group = "Perception"
-    msg.sheriff = socket.gethostname()
-    msg.deputy = socket.gethostname()
     msg.command = "delete_process"
-    msg.proc_command = "/home/mbustos/agv1/nodes/bin/ukf_node"
-    msg.auto_restart = False
-    msg.realtime = False
+    msg.deputy = socket.gethostname()
     lc.publish("procman3/commands", msg.encode())
+    
+    msg = command_t()
+    msg.name = "Motion Control Node"
+    msg.command = "delete_process"
+    msg.deputy = socket.gethostname()
+    lc.publish("procman3/commands", msg.encode())
+
     return 0
 
 if __name__ == "__main__":

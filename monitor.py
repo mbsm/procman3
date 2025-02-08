@@ -3,9 +3,8 @@
 
 import lcm
 import time
-import curses
-import signal
 from tabulate import tabulate
+import curses
 from procman3_messages import deputy_info_t, deputy_procs_t, proc_output_t
 
 class ProcmanMonitor:
@@ -39,6 +38,7 @@ class ProcmanMonitor:
 
     def deputy_procs_handler(self, channel, data):
         msg = deputy_procs_t.decode(data)
+        self.processes.clear()
         for proc in msg.procs:
             self.processes[proc.name] = {
                 'group': proc.group,
@@ -48,7 +48,8 @@ class ProcmanMonitor:
                 'mem': proc.mem,
                 'pid': proc.pid,
                 'errors': proc.errors,
-                'timestamp': msg.timestamp
+                'timestamp': msg.timestamp,
+                'priority': proc.priority
             }
 
     def proc_output_handler(self, channel, data):
@@ -61,7 +62,7 @@ class ProcmanMonitor:
 
     def display_deputies(self):
         table = []
-        headers = ['Deputy', 'IP', 'Procs', 'CPU%', 'Mem%', 'Net TX(KB)', 'Net RX(KB)', 'Uptime(s)']
+        headers = ['Deputy', 'IP', 'Procs', 'CPU%', 'Mem%', 'Net TX(kB/s)', 'Net RX(kB/s)', 'Uptime(s)']
         
         for name, info in self.deputies.items():
             table.append([
@@ -75,31 +76,59 @@ class ProcmanMonitor:
                 f"{info['uptime']}"
             ])
         
-        return tabulate(table, headers=headers, tablefmt='grid')
-
+        #return tabulate(table, headers=headers, tablefmt='github')
+        return tabulate(table, headers=headers)
+    
     def display_processes(self):
-        table = []
-        headers = ['Name', 'Group', 'Deputy', 'Status', 'CPU%', 'Mem(KB)', 'PID', 'Errors']
-        
+        grouped_processes = {}
         for name, info in self.processes.items():
-            table.append([
-                name,
-                info['group'],
-                info['deputy'],
-                info['status'],
-                f"{info['cpu']*100:.1f}",
-                info['mem'],
-                info['pid'],
-                info['errors'][:30]  # Truncate long error messages
-            ])
-        
-        return tabulate(table, headers=headers, tablefmt='grid')
+            group = info['group']
+            if group not in grouped_processes:
+                grouped_processes[group] = []
+            grouped_processes[group].append((name, info))
+    
+        output = ""
+        headers = ['Group', 'Name', 'Deputy', 'Status', 'CPU%', 'Mem(KB)', 'PID', 'Priority', 'Errors']
+        colalign = ['left', 'left', 'left'  , 'center', 'right', 'right', 'right', 'right'  , 'left']
+        table = []
+    
+        for group, processes in grouped_processes.items():
+            total_cpu = sum(info['cpu'] for _, info in processes)
+            total_mem = sum(info['mem'] for _, info in processes)
+            
+            statuses = [info['status'] for _, info in processes]
+            if all(status == 'R' for status in statuses):
+                group_status = 'R'
+            elif all(status == 'T' for status in statuses):
+                group_status = 'T'
+            else:
+                group_status = 'X'
+            
+            table.append([group, '', '', group_status, f"{total_cpu*100:.1f}", total_mem, '', '', ''])  # Add group row with totals and status
+            for name, info in processes:
+                table.append([
+                    '',  # Empty cell for group
+                    f"  {name}",  # Indent process name
+                    info['deputy'],
+                    info['status'],
+                    f"{info['cpu']*100:.1f}",
+                    info['mem']*1,
+                    info['pid']*1,
+                    info['priority'],
+                    info['errors'][:30]
+                ])
 
-    def display_outputs(self):
+        #table = tabulate(table, headers=headers, tablefmt='github', numalign="right" )
+        table = tabulate(table, headers=headers) 
+        output += table
+        return output
+
+    def display_outputs(self, num_lines=7):
         output_text = "\nProcess Outputs:\n"
         for name, info in self.outputs.items():
             if info['stdout'].strip():
-                output_text += f"\n=== {name} ===\n{info['stdout']}\n"
+                truncated_output = '\n'.join(info['stdout'].splitlines()[:num_lines])  # Get the first num_lines of the output
+                output_text += f"\n=== {name} ===\n{truncated_output}\n"
         return output_text
     
     def clear(self):
@@ -110,7 +139,7 @@ class ProcmanMonitor:
         try:
             while True:
                 # Handle LCM messages
-                self.lc.handle()
+                self.lc.handle_timeout(50)
 
                 # Clear screen
                 print("\033[2J\033[H", end="")
@@ -120,7 +149,8 @@ class ProcmanMonitor:
                 print(self.display_deputies())
                 print("\nProcess Status:")
                 print(self.display_processes())
-                print(self.display_outputs())
+                #print("\nProcess Outputs:")
+                #print(self.display_outputs())
 
         except KeyboardInterrupt:
             print("\nExiting monitor...")

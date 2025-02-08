@@ -8,7 +8,7 @@ struct deputy_info_t
     
     float cpu_usage; // host cpu usage 
     float mem_usage; // host mem usage
-    float network_sent;    // KB
-    float network_recv;    // Kb
+    float network_sent;    // KB/s
+    float network_recv;    // KB/s
     int64_t uptime;        // usecs from start
 }
