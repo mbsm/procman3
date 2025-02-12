@@ -10,11 +10,11 @@ except ImportError:
 import struct
 
 class proc_info_t(object):
-    __slots__ = ["name", "group", "deputy", "status", "errors", "cpu", "mem", "priority", "pid", "auto_restart", "exit_code"]
+    __slots__ = ["name", "group", "deputy", "status", "errors", "cmd", "cpu", "mem", "priority", "pid", "auto_restart", "realtime", "exit_code", "runtime"]
 
-    __typenames__ = ["string", "string", "string", "string", "string", "float", "int32_t", "int32_t", "int32_t", "boolean", "int8_t"]
+    __typenames__ = ["string", "string", "string", "string", "string", "string", "float", "int32_t", "int32_t", "int32_t", "boolean", "boolean", "int8_t", "int32_t"]
 
-    __dimensions__ = [None, None, None, None, None, None, None, None, None, None, None]
+    __dimensions__ = [None, None, None, None, None, None, None, None, None, None, None, None, None, None]
 
     def __init__(self):
         self.name = ""
@@ -22,12 +22,15 @@ class proc_info_t(object):
         self.deputy = ""
         self.status = ""
         self.errors = ""
+        self.cmd = ""
         self.cpu = 0.0
         self.mem = 0
         self.priority = 0
         self.pid = 0
         self.auto_restart = False
+        self.realtime = False
         self.exit_code = 0
+        self.runtime = 0
 
     def encode(self):
         buf = BytesIO()
@@ -56,7 +59,11 @@ class proc_info_t(object):
         buf.write(struct.pack('>I', len(__errors_encoded)+1))
         buf.write(__errors_encoded)
         buf.write(b"\0")
-        buf.write(struct.pack(">fiiibb", self.cpu, self.mem, self.priority, self.pid, self.auto_restart, self.exit_code))
+        __cmd_encoded = self.cmd.encode('utf-8')
+        buf.write(struct.pack('>I', len(__cmd_encoded)+1))
+        buf.write(__cmd_encoded)
+        buf.write(b"\0")
+        buf.write(struct.pack(">fiiibbbi", self.cpu, self.mem, self.priority, self.pid, self.auto_restart, self.realtime, self.exit_code, self.runtime))
 
     def decode(data):
         if hasattr(data, 'read'):
@@ -80,15 +87,18 @@ class proc_info_t(object):
         self.status = buf.read(__status_len)[:-1].decode('utf-8', 'replace')
         __errors_len = struct.unpack('>I', buf.read(4))[0]
         self.errors = buf.read(__errors_len)[:-1].decode('utf-8', 'replace')
+        __cmd_len = struct.unpack('>I', buf.read(4))[0]
+        self.cmd = buf.read(__cmd_len)[:-1].decode('utf-8', 'replace')
         self.cpu, self.mem, self.priority, self.pid = struct.unpack(">fiii", buf.read(16))
         self.auto_restart = bool(struct.unpack('b', buf.read(1))[0])
-        self.exit_code = struct.unpack(">b", buf.read(1))[0]
+        self.realtime = bool(struct.unpack('b', buf.read(1))[0])
+        self.exit_code, self.runtime = struct.unpack(">bi", buf.read(5))
         return self
     _decode_one = staticmethod(_decode_one)
 
     def _get_hash_recursive(parents):
         if proc_info_t in parents: return 0
-        tmphash = (0x6f0dc2fc8358e169) & 0xffffffffffffffff
+        tmphash = (0xfeba3ae88b884f8f) & 0xffffffffffffffff
         tmphash  = (((tmphash<<1)&0xffffffffffffffff) + (tmphash>>63)) & 0xffffffffffffffff
         return tmphash
     _get_hash_recursive = staticmethod(_get_hash_recursive)

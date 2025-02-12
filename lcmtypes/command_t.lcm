@@ -8,22 +8,19 @@ struct command_t
     // group of the command
     string group;
 
-    // sherrif sending the command
-    string sheriff;
+    // remote host that should execute the command
+    string host;
 
-    // deputy that should comply with the command
-    string deputy;
-
-    // deputy command start, stop, delete
+    // commands: create, start, stop, delete
     string command ;
 
-    // command to execute
+    // remote path of command to execute
     string proc_command;
 
-    // auto restart flags for the commands
+    // auto restart flag 
     boolean auto_restart; 
 
-    // realtime priority for the process
+    // realtime priority flag
     boolean realtime;
 
 }

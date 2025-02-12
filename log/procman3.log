@@ -1,163 +1,506 @@
-2025-02-07 20:22:31,738 - root - INFO - Deputy initialized with channels: command_channel=procman3/commands, deputy_info_channel=procman3/deputy_info, proc_outputs_channel=procman3/proc_outputs, deputy_procs_channel=procman3/deputy_procs
-2025-02-07 20:22:31,738 - root - INFO - Deputy running.
-2025-02-07 20:22:34,299 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 20:22:34,299 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 20:22:34,300 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 20:22:34,300 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 20:22:34,300 - root - INFO - Command handler: Received command: create_process for process: /home/agv1/agv1/nodes/bin/motion_controller_node
-2025-02-07 20:22:34,300 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/agv1/agv1/nodes/bin/motion_controller_node
-2025-02-07 20:22:39,300 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 20:22:39,300 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 20:22:39,301 - root - INFO - Start Process: Started process: UKF Node with PID 135127
-2025-02-07 20:22:39,301 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 20:22:39,301 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 20:22:39,302 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 135128
-2025-02-07 20:22:39,302 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 20:22:39,302 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/agv1/agv1/nodes/bin/motion_controller_node
-2025-02-07 20:22:39,303 - root - ERROR - Start Process: Failed to start process Motion Control Node: [Errno 2] No such file or directory: '/home/agv1/agv1/nodes/bin/motion_controller_node'
-2025-02-07 20:37:22,065 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 20:37:22,066 - root - WARNING - Create Process: Process UKF Node already exists in the process table.
-2025-02-07 20:37:22,066 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 20:37:22,066 - root - WARNING - Create Process: Process Obstacle Detection Node already exists in the process table.
-2025-02-07 20:37:22,066 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
-2025-02-07 20:37:22,066 - root - WARNING - Create Process: Process Motion Control Node already exists in the process table.
-2025-02-07 20:37:27,065 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 20:37:27,121 - root - INFO - Start Process: Process UKF Node is already running with PID 135127. Skipping start.
-2025-02-07 20:37:27,122 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 20:37:27,177 - root - INFO - Start Process: Process Obstacle Detection Node is already running with PID 135128. Skipping start.
-2025-02-07 20:37:27,177 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 20:37:27,177 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/agv1/agv1/nodes/bin/motion_controller_node
-2025-02-07 20:37:27,179 - root - ERROR - Start Process: Failed to start process Motion Control Node: [Errno 2] No such file or directory: '/home/agv1/agv1/nodes/bin/motion_controller_node'
-2025-02-07 20:37:53,716 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 20:37:53,716 - root - WARNING - Create Process: Process UKF Node already exists in the process table.
-2025-02-07 20:37:53,717 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 20:37:53,717 - root - WARNING - Create Process: Process Obstacle Detection Node already exists in the process table.
-2025-02-07 20:37:53,717 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
-2025-02-07 20:37:53,717 - root - WARNING - Create Process: Process Motion Control Node already exists in the process table.
-2025-02-07 20:37:58,717 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 20:37:58,775 - root - INFO - Start Process: Process UKF Node is already running with PID 135127. Skipping start.
-2025-02-07 20:37:58,998 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 20:37:59,053 - root - INFO - Start Process: Process Obstacle Detection Node is already running with PID 135128. Skipping start.
-2025-02-07 20:37:59,053 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 20:37:59,053 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/agv1/agv1/nodes/bin/motion_controller_node
-2025-02-07 20:37:59,053 - root - ERROR - Start Process: Failed to start process Motion Control Node: [Errno 2] No such file or directory: '/home/agv1/agv1/nodes/bin/motion_controller_node'
-2025-02-07 20:39:54,664 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 20:39:54,664 - root - WARNING - Create Process: Process UKF Node already exists in the process table.
-2025-02-07 20:39:54,664 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 20:39:54,664 - root - WARNING - Create Process: Process Obstacle Detection Node already exists in the process table.
-2025-02-07 20:39:54,664 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
-2025-02-07 20:39:54,665 - root - WARNING - Create Process: Process Motion Control Node already exists in the process table.
-2025-02-07 20:39:59,664 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 20:39:59,721 - root - INFO - Start Process: Process UKF Node is already running with PID 135127. Skipping start.
-2025-02-07 20:39:59,721 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 20:39:59,783 - root - INFO - Start Process: Process Obstacle Detection Node is already running with PID 135128. Skipping start.
-2025-02-07 20:40:00,008 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 20:40:00,008 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/agv1/agv1/nodes/bin/motion_controller_node
-2025-02-07 20:40:00,009 - root - ERROR - Start Process: Failed to start process Motion Control Node: [Errno 2] No such file or directory: '/home/agv1/agv1/nodes/bin/motion_controller_node'
-2025-02-07 20:41:18,677 - root - INFO - Deputy initialized with channels: command_channel=procman3/commands, deputy_info_channel=procman3/deputy_info, proc_outputs_channel=procman3/proc_outputs, deputy_procs_channel=procman3/deputy_procs
-2025-02-07 20:41:18,677 - root - INFO - Deputy running.
-2025-02-07 20:41:26,594 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 20:41:26,594 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 20:41:26,594 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 20:41:26,594 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 20:41:26,594 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
-2025-02-07 20:41:26,594 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
-2025-02-07 20:41:31,594 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 20:41:31,594 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 20:41:31,596 - root - INFO - Start Process: Started process: UKF Node with PID 139181
-2025-02-07 20:41:31,596 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 20:41:31,596 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 20:41:31,596 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 139182
-2025-02-07 20:41:31,597 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 20:41:31,597 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
-2025-02-07 20:41:31,597 - root - INFO - Start Process: Started process: Motion Control Node with PID 139183
-2025-02-07 22:07:01,205 - root - INFO - Deputy initialized with channels: command_channel=procman3/commands, deputy_info_channel=procman3/deputy_info, proc_outputs_channel=procman3/proc_outputs, deputy_procs_channel=procman3/deputy_procs
-2025-02-07 22:07:01,205 - root - INFO - Deputy running.
-2025-02-07 22:07:56,011 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 22:07:56,011 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 22:07:56,011 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 22:07:56,011 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 22:07:56,011 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
-2025-02-07 22:07:56,011 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
-2025-02-07 22:08:01,011 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 22:08:01,011 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 22:08:01,012 - root - INFO - Start Process: Started process: UKF Node with PID 144926
-2025-02-07 22:08:01,012 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 22:08:01,012 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 22:08:01,013 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 144927
-2025-02-07 22:08:01,013 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 22:08:01,013 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
-2025-02-07 22:08:01,014 - root - INFO - Start Process: Started process: Motion Control Node with PID 144928
-2025-02-07 22:08:09,208 - root - INFO - Deputy initialized with channels: command_channel=procman3/commands, deputy_info_channel=procman3/deputy_info, proc_outputs_channel=procman3/proc_outputs, deputy_procs_channel=procman3/deputy_procs
-2025-02-07 22:08:09,208 - root - INFO - Deputy running.
-2025-02-07 22:09:07,307 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 22:09:07,307 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 22:09:07,307 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 22:09:07,307 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 22:09:07,307 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
-2025-02-07 22:09:07,307 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
-2025-02-07 22:09:12,307 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 22:09:12,307 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 22:09:12,308 - root - INFO - Start Process: Started process: UKF Node with PID 145248
-2025-02-07 22:09:12,308 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 22:09:12,308 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 22:09:12,309 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 145249
-2025-02-07 22:09:12,309 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 22:09:12,309 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
-2025-02-07 22:09:12,310 - root - INFO - Start Process: Started process: Motion Control Node with PID 145250
-2025-02-07 22:23:43,127 - root - INFO - Command handler: Received command: stop_process for process: 
-2025-02-07 22:23:43,129 - root - INFO - Stop Process: Gracefully stopped process: UKF Node with PID 145248
-2025-02-07 22:23:43,129 - root - INFO - Command handler: Received command: stop_process for process: 
-2025-02-07 22:23:43,129 - root - INFO - Stop Process: Gracefully stopped process: Motion Control Node with PID 145250
-2025-02-07 22:23:55,439 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 22:23:55,439 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 22:23:55,439 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 22:23:55,440 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 22:23:55,440 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
-2025-02-07 22:23:55,440 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
-2025-02-07 22:24:00,267 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 22:24:00,267 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 22:24:00,268 - root - INFO - Start Process: Started process: UKF Node with PID 149257
-2025-02-07 22:24:00,269 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 22:24:00,269 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 22:24:00,269 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 149258
-2025-02-07 22:24:00,270 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 22:24:00,270 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
-2025-02-07 22:24:00,270 - root - INFO - Start Process: Started process: Motion Control Node with PID 149259
-2025-02-07 22:27:24,881 - root - INFO - Deputy initialized with channels: command_channel=procman3/commands, deputy_info_channel=procman3/deputy_info, proc_outputs_channel=procman3/proc_outputs, deputy_procs_channel=procman3/deputy_procs
-2025-02-07 22:27:24,881 - root - INFO - Deputy running.
-2025-02-07 22:27:31,620 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 22:27:31,620 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 22:27:31,620 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 22:27:31,620 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 22:27:31,621 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
-2025-02-07 22:27:31,621 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
-2025-02-07 22:27:36,620 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 22:27:36,621 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 22:27:36,622 - root - INFO - Start Process: Started process: UKF Node with PID 150035
-2025-02-07 22:27:36,622 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 22:27:36,622 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 22:27:36,623 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 150036
-2025-02-07 22:27:36,623 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 22:27:36,623 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
-2025-02-07 22:27:36,624 - root - INFO - Start Process: Started process: Motion Control Node with PID 150037
-2025-02-07 22:27:45,229 - root - INFO - Command handler: Received command: stop_process for process: 
-2025-02-07 22:27:45,230 - root - INFO - Stop Process: Gracefully stopped process: UKF Node with PID 150035
-2025-02-07 22:27:45,230 - root - INFO - Command handler: Received command: stop_process for process: 
-2025-02-07 22:27:45,231 - root - INFO - Stop Process: Gracefully stopped process: Motion Control Node with PID 150037
-2025-02-07 22:27:53,294 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 22:27:53,349 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 22:27:53,349 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 22:27:53,404 - root - INFO - Stop Process: Gracefully stopped process: Obstacle Detection Node with PID 150036
-2025-02-07 22:27:53,404 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 22:27:53,405 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
-2025-02-07 22:27:53,458 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
-2025-02-07 22:27:58,295 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 22:27:58,295 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
-2025-02-07 22:27:58,297 - root - INFO - Start Process: Started process: UKF Node with PID 150238
-2025-02-07 22:27:58,297 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 22:27:58,297 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
-2025-02-07 22:27:58,298 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 150239
-2025-02-07 22:27:58,298 - root - INFO - Command handler: Received command: start_process for process: 
-2025-02-07 22:27:58,298 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
-2025-02-07 22:27:58,299 - root - INFO - Start Process: Started process: Motion Control Node with PID 150240
+2025-02-09 18:33:03,814 - root - INFO - Deputy initialized with channels: command_channel=procman3/commands, deputy_info_channel=procman3/deputy_info, proc_outputs_channel=procman3/proc_outputs, deputy_procs_channel=procman3/deputy_procs
+2025-02-09 18:33:03,815 - root - INFO - Deputy running.
+2025-02-09 18:33:48,038 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 18:33:48,038 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 18:33:48,039 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 18:33:48,039 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 18:33:48,039 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 18:33:48,039 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 18:33:48,039 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 18:33:48,039 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:00:38,875 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:00:38,875 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:00:38,875 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:00:38,875 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:00:38,875 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:00:38,876 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:00:38,876 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:00:38,876 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:09:25,702 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:09:25,702 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:09:25,702 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:09:25,702 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:09:25,702 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:09:25,702 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:09:25,702 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:09:25,703 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:09:54,832 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:09:54,833 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:09:54,833 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:09:54,833 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:09:54,833 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:09:54,833 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:09:54,833 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:09:54,833 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:17:55,787 - root - INFO - Deputy initialized with channels: command_channel=procman3/commands, deputy_info_channel=procman3/deputy_info, proc_outputs_channel=procman3/proc_outputs, deputy_procs_channel=procman3/deputy_procs
+2025-02-09 19:17:55,787 - root - INFO - Deputy running.
+2025-02-09 19:18:25,200 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:18:25,200 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:18:25,201 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:18:25,201 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:18:25,201 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:18:25,201 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:18:25,201 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:18:25,201 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:27:46,776 - root - INFO - Command handler: Received command: create_process for process: /home/agv1/agv1/nodes/bin/ukf_node
+2025-02-09 19:27:46,777 - root - INFO - Create Process: Created process: UKF Node with command: /home/agv1/agv1/nodes/bin/ukf_node
+2025-02-09 19:27:46,777 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:27:46,777 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:27:46,777 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:27:46,777 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:27:46,777 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:27:46,777 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:28:06,998 - root - INFO - Command handler: Received command: create_process for process: /home/agv1/agv1/nodes/bin/ukf_node
+2025-02-09 19:28:06,998 - root - INFO - Create Process: Created process: UKF Node with command: /home/agv1/agv1/nodes/bin/ukf_node
+2025-02-09 19:28:06,998 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:28:06,998 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:28:06,998 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:28:06,998 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:28:06,998 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:28:06,998 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:28:20,504 - root - INFO - Deputy initialized with channels: command_channel=procman3/commands, deputy_info_channel=procman3/deputy_info, proc_outputs_channel=procman3/proc_outputs, deputy_procs_channel=procman3/deputy_procs
+2025-02-09 19:28:20,504 - root - INFO - Deputy running.
+2025-02-09 19:28:41,160 - root - INFO - Command handler: Received command: create_process for process: /home/agv1/agv1/nodes/bin/ukf_node
+2025-02-09 19:28:41,160 - root - INFO - Create Process: Created process: UKF Node with command: /home/agv1/agv1/nodes/bin/ukf_node
+2025-02-09 19:28:41,160 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:28:41,160 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:28:41,160 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:28:41,160 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:28:41,160 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:28:41,160 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:39:13,371 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:39:13,371 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:39:13,372 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:39:13,372 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:39:13,372 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:39:13,372 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:39:13,372 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:39:13,372 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:39:18,372 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-09 19:39:18,372 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:39:18,373 - root - INFO - Start Process: Started process: UKF Node with PID 64474
+2025-02-09 19:39:18,374 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-09 19:39:18,374 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:39:18,374 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 64475
+2025-02-09 19:39:18,375 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-09 19:39:18,375 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:39:18,375 - root - INFO - Start Process: Started process: Motion Control Node with PID 64476
+2025-02-09 19:39:18,376 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-09 19:39:18,376 - root - INFO - Start Process: Starting process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:39:18,376 - root - INFO - Start Process: Started process: VLP 16 Lidar Node with PID 64477
+2025-02-09 19:51:21,023 - root - INFO - Deputy initialized with channels: command_channel=procman3/commands, deputy_info_channel=procman3/deputy_info, proc_outputs_channel=procman3/proc_outputs, deputy_procs_channel=procman3/deputy_procs
+2025-02-09 19:51:21,023 - root - INFO - Deputy running.
+2025-02-09 19:51:33,467 - root - INFO - Command handler: Received command: create_process for process: /home/agv1/agv1/nodes/bin/ukf_node
+2025-02-09 19:51:33,467 - root - INFO - Create Process: Created process: UKF Node with command: /home/agv1/agv1/nodes/bin/ukf_node
+2025-02-09 19:51:33,467 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:51:33,467 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:51:33,467 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:51:33,467 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:51:33,467 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:51:33,467 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:51:51,013 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:51:51,013 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:51:51,013 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:51:51,013 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:51:51,014 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:51:51,014 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:51:51,014 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:51:51,014 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:51:56,013 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-09 19:51:56,014 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:51:56,016 - root - INFO - Start Process: Started process: UKF Node with PID 65771
+2025-02-09 19:51:56,016 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-09 19:51:56,016 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:51:56,017 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 65772
+2025-02-09 19:51:56,017 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-09 19:51:56,017 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:51:56,018 - root - INFO - Start Process: Started process: Motion Control Node with PID 65773
+2025-02-09 19:51:56,018 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-09 19:51:56,018 - root - INFO - Start Process: Starting process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:51:56,018 - root - INFO - Start Process: Started process: VLP 16 Lidar Node with PID 65774
+2025-02-09 19:53:11,046 - root - WARNING - Monitor Process: Process UKF Node found stopped.
+2025-02-09 19:56:15,590 - root - INFO - Deputy initialized with channels: command_channel=procman3/commands, deputy_info_channel=procman3/deputy_info, proc_outputs_channel=procman3/proc_outputs, deputy_procs_channel=procman3/deputy_procs
+2025-02-09 19:56:15,591 - root - INFO - Deputy running.
+2025-02-09 19:56:27,056 - root - INFO - Command handler: Received command: create_process for process: /home/agv1/agv1/nodes/bin/ukf_node
+2025-02-09 19:56:27,057 - root - INFO - Create Process: Created process: UKF Node with command: /home/agv1/agv1/nodes/bin/ukf_node
+2025-02-09 19:56:27,057 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:56:27,057 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:56:27,057 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:56:27,057 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:56:27,057 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:56:27,057 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:57:28,308 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:57:28,308 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:57:32,300 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:57:32,300 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:57:32,303 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:57:32,303 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:57:32,304 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:57:32,304 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:57:32,305 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-09 19:57:32,305 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:57:32,310 - root - INFO - Start Process: Started process: UKF Node with PID 66333
+2025-02-09 19:57:32,370 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-09 19:57:32,370 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:57:32,371 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 66335
+2025-02-09 19:57:32,412 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-09 19:57:32,413 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:57:32,413 - root - INFO - Start Process: Started process: Motion Control Node with PID 66337
+2025-02-09 19:57:32,479 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-09 19:57:32,480 - root - INFO - Start Process: Starting process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:57:32,482 - root - INFO - Start Process: Started process: VLP 16 Lidar Node with PID 66339
+2025-02-09 19:57:37,171 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:57:37,183 - root - INFO - Stop Process: Gracefully stopped process: UKF Node with PID 66333
+2025-02-09 19:57:37,184 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:57:42,584 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:57:42,596 - root - INFO - Stop Process: Gracefully stopped process: Obstacle Detection Node with PID 66335
+2025-02-09 19:57:42,596 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:57:50,015 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:57:50,027 - root - INFO - Stop Process: Gracefully stopped process: Motion Control Node with PID 66337
+2025-02-09 19:57:50,027 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:57:50,050 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:57:50,060 - root - INFO - Stop Process: Gracefully stopped process: VLP 16 Lidar Node with PID 66339
+2025-02-09 19:57:50,060 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:57:50,061 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-09 19:57:50,062 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:57:50,064 - root - INFO - Start Process: Started process: UKF Node with PID 66413
+2025-02-09 19:57:50,085 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-09 19:57:50,085 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:57:50,086 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 66415
+2025-02-09 19:57:50,126 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-09 19:57:50,126 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:57:50,127 - root - INFO - Start Process: Started process: Motion Control Node with PID 66417
+2025-02-09 19:57:50,187 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-09 19:57:50,187 - root - INFO - Start Process: Starting process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:57:50,187 - root - INFO - Start Process: Started process: VLP 16 Lidar Node with PID 66419
+2025-02-09 19:57:51,948 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:57:51,958 - root - INFO - Stop Process: Gracefully stopped process: UKF Node with PID 66413
+2025-02-09 19:57:51,959 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:57:52,019 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:57:52,030 - root - INFO - Stop Process: Gracefully stopped process: Obstacle Detection Node with PID 66415
+2025-02-09 19:57:52,030 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:57:52,070 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:57:52,080 - root - INFO - Stop Process: Gracefully stopped process: Motion Control Node with PID 66417
+2025-02-09 19:57:52,080 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:57:52,101 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:57:52,112 - root - INFO - Stop Process: Gracefully stopped process: VLP 16 Lidar Node with PID 66419
+2025-02-09 19:57:52,112 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:57:56,913 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-09 19:57:56,913 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-09 19:57:56,914 - root - INFO - Start Process: Started process: UKF Node with PID 66442
+2025-02-09 19:57:56,914 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-09 19:57:56,914 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-09 19:57:56,915 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 66443
+2025-02-09 19:57:56,915 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-09 19:57:56,915 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-09 19:57:56,916 - root - INFO - Start Process: Started process: Motion Control Node with PID 66444
+2025-02-09 19:57:56,916 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-09 19:57:56,916 - root - INFO - Start Process: Starting process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-09 19:57:56,917 - root - INFO - Start Process: Started process: VLP 16 Lidar Node with PID 66445
+2025-02-09 19:58:29,618 - root - WARNING - Monitor Process: Process UKF Node found stopped.
+2025-02-11 18:07:33,859 - root - INFO - Deputy initialized with channels: command_channel=procman3/commands, deputy_info_channel=procman3/deputy_info, proc_outputs_channel=procman3/proc_outputs, deputy_procs_channel=procman3/deputy_procs
+2025-02-11 18:07:33,860 - root - INFO - Deputy running.
+2025-02-11 18:07:54,960 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:07:54,960 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:07:54,960 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:07:54,960 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:07:54,960 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:07:54,960 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:07:54,960 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:07:54,960 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:07:59,960 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:07:59,960 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:07:59,969 - root - INFO - Start Process: Started process: UKF Node with PID 5420
+2025-02-11 18:07:59,969 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:07:59,969 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:07:59,970 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 5422
+2025-02-11 18:07:59,970 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:07:59,970 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:07:59,971 - root - INFO - Start Process: Started process: Motion Control Node with PID 5423
+2025-02-11 18:07:59,971 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:07:59,971 - root - INFO - Start Process: Starting process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:07:59,972 - root - INFO - Start Process: Started process: VLP 16 Lidar Node with PID 5424
+2025-02-11 18:16:03,992 - root - INFO - Deputy initialized with channels: command_channel=procman3/commands, deputy_info_channel=procman3/deputy_info, proc_outputs_channel=procman3/proc_outputs, deputy_procs_channel=procman3/deputy_procs
+2025-02-11 18:16:03,992 - root - INFO - Deputy running.
+2025-02-11 18:16:06,508 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:16:06,508 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:16:06,508 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:16:06,508 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:16:06,508 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:16:06,508 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:16:06,508 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:16:06,508 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:16:11,508 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:16:11,508 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:16:11,510 - root - INFO - Start Process: Started process: UKF Node with PID 6870
+2025-02-11 18:16:11,510 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:16:11,510 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:16:11,511 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 6871
+2025-02-11 18:16:11,511 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:16:11,511 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:16:11,511 - root - INFO - Start Process: Started process: Motion Control Node with PID 6872
+2025-02-11 18:16:11,512 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:16:11,512 - root - INFO - Start Process: Starting process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:16:11,512 - root - INFO - Start Process: Started process: VLP 16 Lidar Node with PID 6873
+2025-02-11 18:17:02,163 - root - INFO - Deputy initialized with channels: command_channel=procman3/commands, deputy_info_channel=procman3/deputy_info, proc_outputs_channel=procman3/proc_outputs, deputy_procs_channel=procman3/deputy_procs
+2025-02-11 18:17:02,163 - root - INFO - Deputy running.
+2025-02-11 18:17:09,624 - root - INFO - Deputy initialized with channels: command_channel=procman3/commands, deputy_info_channel=procman3/deputy_info, proc_outputs_channel=procman3/proc_outputs, deputy_procs_channel=procman3/deputy_procs
+2025-02-11 18:17:09,624 - root - INFO - Deputy running.
+2025-02-11 18:17:11,004 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:17:11,005 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:17:11,005 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:17:11,005 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:17:11,005 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:17:11,005 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:17:11,005 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:17:11,005 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:17:16,005 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:17:16,005 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:17:16,007 - root - INFO - Start Process: Started process: UKF Node with PID 7094
+2025-02-11 18:17:16,007 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:17:16,007 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:17:16,008 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 7095
+2025-02-11 18:17:16,008 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:17:16,008 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:17:16,009 - root - INFO - Start Process: Started process: Motion Control Node with PID 7096
+2025-02-11 18:17:16,009 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:17:16,009 - root - INFO - Start Process: Starting process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:17:16,010 - root - INFO - Start Process: Started process: VLP 16 Lidar Node with PID 7097
+2025-02-11 18:17:44,922 - root - INFO - Deputy initialized with channels: command_channel=procman3/commands, deputy_info_channel=procman3/deputy_info, proc_outputs_channel=procman3/proc_outputs, deputy_procs_channel=procman3/deputy_procs
+2025-02-11 18:17:44,923 - root - INFO - Deputy running.
+2025-02-11 18:17:57,116 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:17:57,116 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:17:57,116 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:17:57,116 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:17:57,116 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:17:57,116 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:17:57,117 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:17:57,117 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:19:09,330 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:19:09,330 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:19:09,335 - root - INFO - Start Process: Started process: UKF Node with PID 7345
+2025-02-11 18:19:56,953 - root - INFO - Deputy initialized with channels: command_channel=procman3/commands, deputy_info_channel=procman3/deputy_info, proc_outputs_channel=procman3/proc_outputs, deputy_procs_channel=procman3/deputy_procs
+2025-02-11 18:19:56,955 - root - INFO - Deputy running.
+2025-02-11 18:20:00,636 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:20:00,636 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:20:00,636 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:20:00,636 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:20:00,636 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:20:00,636 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:20:00,637 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:20:00,637 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:20:06,017 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:20:06,018 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:20:06,023 - root - INFO - Start Process: Started process: UKF Node with PID 7479
+2025-02-11 18:20:53,701 - root - INFO - Deputy initialized with channels: command_channel=procman3/commands, deputy_info_channel=procman3/deputy_info, proc_outputs_channel=procman3/proc_outputs, deputy_procs_channel=procman3/deputy_procs
+2025-02-11 18:20:53,702 - root - INFO - Deputy running.
+2025-02-11 18:21:12,402 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:21:12,403 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:21:12,403 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:21:12,403 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:21:12,403 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:21:12,403 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:21:12,403 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:21:12,403 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:21:17,402 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:21:17,403 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:21:17,408 - root - INFO - Start Process: Started process: UKF Node with PID 7617
+2025-02-11 18:21:17,408 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:21:17,408 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:21:17,409 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 7618
+2025-02-11 18:21:17,409 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:21:17,409 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:21:17,410 - root - INFO - Start Process: Started process: Motion Control Node with PID 7619
+2025-02-11 18:21:17,410 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:21:17,410 - root - INFO - Start Process: Starting process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:21:17,411 - root - INFO - Start Process: Started process: VLP 16 Lidar Node with PID 7622
+2025-02-11 18:23:08,105 - root - INFO - Deputy initialized with channels: command_channel=procman3/commands, deputy_info_channel=procman3/deputy_info, proc_outputs_channel=procman3/proc_outputs, deputy_procs_channel=procman3/deputy_procs
+2025-02-11 18:23:08,105 - root - INFO - Deputy running.
+2025-02-11 18:23:12,579 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:23:12,579 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:23:12,580 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:23:12,580 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:23:12,580 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:23:12,580 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:23:12,580 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:23:12,580 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:23:17,580 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:23:17,580 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:23:17,582 - root - INFO - Start Process: Started process: UKF Node with PID 7786
+2025-02-11 18:23:17,582 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:23:17,582 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:23:17,583 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 7787
+2025-02-11 18:23:17,583 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:23:17,583 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:23:17,584 - root - INFO - Start Process: Started process: Motion Control Node with PID 7788
+2025-02-11 18:23:17,584 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:23:17,584 - root - INFO - Start Process: Starting process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:23:17,585 - root - INFO - Start Process: Started process: VLP 16 Lidar Node with PID 7789
+2025-02-11 18:26:19,091 - root - INFO - Deputy initialized with channels: command_channel=procman3/commands, deputy_info_channel=procman3/deputy_info, proc_outputs_channel=procman3/proc_outputs, deputy_procs_channel=procman3/deputy_procs
+2025-02-11 18:26:19,091 - root - INFO - Deputy running.
+2025-02-11 18:26:21,960 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:26:21,961 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:26:21,961 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:26:21,961 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:26:21,961 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:26:21,961 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:26:21,961 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:26:21,961 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:26:26,961 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:26:26,961 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:26:26,962 - root - INFO - Start Process: Started process: UKF Node with PID 8028
+2025-02-11 18:26:26,962 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:26:26,962 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:26:26,963 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 8029
+2025-02-11 18:26:26,964 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:26:26,964 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:26:26,964 - root - INFO - Start Process: Started process: Motion Control Node with PID 8030
+2025-02-11 18:26:26,965 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:26:26,965 - root - INFO - Start Process: Starting process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:26:26,966 - root - INFO - Start Process: Started process: VLP 16 Lidar Node with PID 8031
+2025-02-11 18:27:12,424 - root - INFO - Command handler: Received command: stop_process for process: 
+2025-02-11 18:27:12,425 - root - INFO - Stop Process: Gracefully stopped process: UKF Node with PID 8028
+2025-02-11 18:27:12,425 - root - INFO - Command handler: Received command: stop_process for process: 
+2025-02-11 18:27:12,426 - root - INFO - Stop Process: Gracefully stopped process: Motion Control Node with PID 8030
+2025-02-11 18:27:37,992 - root - INFO - Command handler: Received command: delete_process for process: 
+2025-02-11 18:27:37,993 - root - INFO - Stop Process: Process UKF Node is already stopped.
+2025-02-11 18:27:37,993 - root - INFO - Delete Process: Deleted process: UKF Node
+2025-02-11 18:27:37,993 - root - INFO - Command handler: Received command: delete_process for process: 
+2025-02-11 18:27:37,993 - root - INFO - Stop Process: Process Motion Control Node is already stopped.
+2025-02-11 18:27:37,993 - root - INFO - Delete Process: Deleted process: Motion Control Node
+2025-02-11 18:27:45,217 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:27:45,217 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:27:45,217 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:27:45,229 - root - INFO - Stop Process: Gracefully stopped process: Obstacle Detection Node with PID 8029
+2025-02-11 18:27:45,229 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:27:45,230 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:27:45,230 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:27:45,230 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:27:45,240 - root - INFO - Stop Process: Gracefully stopped process: VLP 16 Lidar Node with PID 8031
+2025-02-11 18:27:45,240 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:27:50,217 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:27:50,218 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:27:50,219 - root - INFO - Start Process: Started process: UKF Node with PID 8237
+2025-02-11 18:27:50,219 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:27:50,219 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:27:50,220 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 8238
+2025-02-11 18:27:50,220 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:27:50,220 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:27:50,221 - root - INFO - Start Process: Started process: Motion Control Node with PID 8239
+2025-02-11 18:27:50,221 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:27:50,221 - root - INFO - Start Process: Starting process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:27:50,221 - root - INFO - Start Process: Started process: VLP 16 Lidar Node with PID 8240
+2025-02-11 18:28:52,094 - root - WARNING - Monitor Process: Process Obstacle Detection Node found stopped.
+2025-02-11 18:29:32,495 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:29:32,506 - root - INFO - Stop Process: Gracefully stopped process: UKF Node with PID 8237
+2025-02-11 18:29:32,506 - root - INFO - Create Process: Created process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:29:32,506 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:29:32,517 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:29:32,518 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:29:32,535 - root - INFO - Stop Process: Gracefully stopped process: Motion Control Node with PID 8239
+2025-02-11 18:29:32,535 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:29:32,535 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:29:32,546 - root - INFO - Stop Process: Gracefully stopped process: VLP 16 Lidar Node with PID 8240
+2025-02-11 18:29:32,546 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:29:37,495 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:29:37,495 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:29:37,497 - root - INFO - Start Process: Started process: UKF Node with PID 8430
+2025-02-11 18:29:37,497 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:29:37,497 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:29:37,497 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 8431
+2025-02-11 18:29:37,498 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:29:37,498 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:29:37,498 - root - INFO - Start Process: Started process: Motion Control Node with PID 8432
+2025-02-11 18:29:37,498 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:29:37,498 - root - INFO - Start Process: Starting process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:29:37,499 - root - INFO - Start Process: Started process: VLP 16 Lidar Node with PID 8433
+2025-02-11 18:29:59,129 - root - WARNING - Monitor Process: Process UKF Node found stopped.
+2025-02-11 18:29:59,130 - root - INFO - Monitor Process: Restarting process UKF Node.
+2025-02-11 18:29:59,139 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:29:59,140 - root - INFO - Start Process: Started process: UKF Node with PID 8493
+2025-02-11 18:30:36,114 - root - WARNING - Monitor Process: Process UKF Node found stopped.
+2025-02-11 18:30:36,114 - root - INFO - Monitor Process: Restarting process UKF Node.
+2025-02-11 18:30:36,126 - root - INFO - Start Process: Starting process: UKF Node with command: /home/mbustos/agv1/nodes/bin/ukf_node
+2025-02-11 18:30:36,126 - root - INFO - Start Process: Started process: UKF Node with PID 8524
+2025-02-11 18:31:16,192 - root - INFO - Command handler: Received command: create_process for process: /home/agv1/agv1/nodes/bin/ukf_node
+2025-02-11 18:31:16,203 - root - INFO - Stop Process: Gracefully stopped process: UKF Node with PID 8524
+2025-02-11 18:31:16,203 - root - INFO - Create Process: Created process: UKF Node with command: /home/agv1/agv1/nodes/bin/ukf_node
+2025-02-11 18:31:16,204 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:31:16,214 - root - INFO - Stop Process: Gracefully stopped process: Obstacle Detection Node with PID 8431
+2025-02-11 18:31:16,214 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:31:16,214 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:31:16,224 - root - INFO - Stop Process: Gracefully stopped process: Motion Control Node with PID 8432
+2025-02-11 18:31:16,224 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:31:16,224 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:31:16,234 - root - INFO - Stop Process: Gracefully stopped process: VLP 16 Lidar Node with PID 8433
+2025-02-11 18:31:16,234 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:45:47,741 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:45:47,741 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:45:47,743 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 9310
+2025-02-11 18:45:51,833 - root - INFO - Command handler: Received command: stop_process for process: 
+2025-02-11 18:45:51,834 - root - INFO - Stop Process: Gracefully stopped process: Obstacle Detection Node with PID 9310
+2025-02-11 18:45:57,472 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:45:57,481 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:45:57,482 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 9327
+2025-02-11 18:46:02,408 - root - INFO - Command handler: Received command: stop_process for process: 
+2025-02-11 18:46:02,410 - root - INFO - Stop Process: Gracefully stopped process: Obstacle Detection Node with PID 9327
+2025-02-11 18:54:51,546 - root - INFO - Command handler: Received command: stop_process for process: 
+2025-02-11 18:54:51,546 - root - INFO - Stop Process: Process Obstacle Detection Node is already stopped.
+2025-02-11 18:54:54,369 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:54:54,378 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:54:54,379 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 9341
+2025-02-11 18:54:57,281 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:54:57,281 - root - INFO - Start Process: Starting process: UKF Node with command: /home/agv1/agv1/nodes/bin/ukf_node
+2025-02-11 18:54:57,283 - root - ERROR - Start Process: Failed to start process UKF Node: [Errno 2] No such file or directory: '/home/agv1/agv1/nodes/bin/ukf_node'
+2025-02-11 18:55:04,321 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:55:04,321 - root - INFO - Start Process: Starting process: UKF Node with command: /home/agv1/agv1/nodes/bin/ukf_node
+2025-02-11 18:55:04,322 - root - ERROR - Start Process: Failed to start process UKF Node: [Errno 2] No such file or directory: '/home/agv1/agv1/nodes/bin/ukf_node'
+2025-02-11 18:55:12,657 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:55:12,657 - root - INFO - Start Process: Starting process: UKF Node with command: /home/agv1/agv1/nodes/bin/ukf_node
+2025-02-11 18:55:12,658 - root - ERROR - Start Process: Failed to start process UKF Node: [Errno 2] No such file or directory: '/home/agv1/agv1/nodes/bin/ukf_node'
+2025-02-11 18:55:14,609 - root - INFO - Command handler: Received command: stop_process for process: 
+2025-02-11 18:55:24,576 - root - INFO - Deputy initialized with channels: command_channel=procman3/commands, deputy_info_channel=procman3/deputy_info, proc_outputs_channel=procman3/proc_outputs, deputy_procs_channel=procman3/deputy_procs
+2025-02-11 18:55:24,576 - root - INFO - Deputy running.
+2025-02-11 18:55:44,301 - root - INFO - Command handler: Received command: create_process for process: /home/agv1/agv1/nodes/bin/ukf_node
+2025-02-11 18:55:44,302 - root - INFO - Create Process: Created process: UKF Node with command: /home/agv1/agv1/nodes/bin/ukf_node
+2025-02-11 18:55:44,302 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:55:44,302 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:55:44,302 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:55:44,302 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:55:44,302 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:55:44,302 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:55:50,329 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:55:50,329 - root - INFO - Start Process: Starting process: UKF Node with command: /home/agv1/agv1/nodes/bin/ukf_node
+2025-02-11 18:55:50,331 - root - ERROR - Start Process: Failed to start process UKF Node: [Errno 2] No such file or directory: '/home/agv1/agv1/nodes/bin/ukf_node'
+2025-02-11 18:55:54,073 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:55:54,074 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:55:54,075 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 9491
+2025-02-11 18:55:58,825 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:55:58,825 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:55:58,826 - root - INFO - Start Process: Started process: Motion Control Node with PID 9493
+2025-02-11 18:56:02,665 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:56:02,665 - root - INFO - Start Process: Starting process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:56:02,666 - root - INFO - Start Process: Started process: VLP 16 Lidar Node with PID 9495
+2025-02-11 18:56:17,305 - root - INFO - Command handler: Received command: stop_process for process: 
+2025-02-11 18:57:36,607 - root - INFO - Deputy initialized with channels: command_channel=procman3/commands, deputy_info_channel=procman3/deputy_info, proc_outputs_channel=procman3/proc_outputs, deputy_procs_channel=procman3/deputy_procs
+2025-02-11 18:57:36,607 - root - INFO - Deputy running.
+2025-02-11 18:57:42,900 - root - INFO - Command handler: Received command: create_process for process: /home/agv1/agv1/nodes/bin/ukf_node
+2025-02-11 18:57:42,900 - root - INFO - Create Process: Created process: UKF Node with command: /home/agv1/agv1/nodes/bin/ukf_node
+2025-02-11 18:57:42,900 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:57:42,900 - root - INFO - Create Process: Created process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:57:42,900 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:57:42,900 - root - INFO - Create Process: Created process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:57:42,900 - root - INFO - Command handler: Received command: create_process for process: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:57:42,900 - root - INFO - Create Process: Created process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:57:49,832 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:57:49,832 - root - INFO - Start Process: Starting process: UKF Node with command: /home/agv1/agv1/nodes/bin/ukf_node
+2025-02-11 18:57:49,833 - root - ERROR - Start Process: Failed to start process UKF Node: [Errno 2] No such file or directory: '/home/agv1/agv1/nodes/bin/ukf_node'
+2025-02-11 18:58:03,560 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:58:03,560 - root - INFO - Start Process: Starting process: Obstacle Detection Node with command: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+2025-02-11 18:58:03,561 - root - INFO - Start Process: Started process: Obstacle Detection Node with PID 9602
+2025-02-11 18:58:10,592 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:58:10,592 - root - INFO - Start Process: Starting process: Motion Control Node with command: /home/mbustos/agv1/nodes/bin/motion_controller_node
+2025-02-11 18:58:10,593 - root - INFO - Start Process: Started process: Motion Control Node with PID 9604
+2025-02-11 18:58:13,344 - root - INFO - Command handler: Received command: start_process for process: 
+2025-02-11 18:58:13,344 - root - INFO - Start Process: Starting process: VLP 16 Lidar Node with command: /home/mbustos/agv1/nodes/bin/vlp16_node
+2025-02-11 18:58:13,345 - root - INFO - Start Process: Started process: VLP 16 Lidar Node with PID 9610

@@ -1,0 +1,34 @@
+LCMChannels:
+  deputy_info_channel: procman3/deputy_info
+  deputy_procs_channel: procman3/deputy_procs
+  proc_output_channel: procman3/proc_outputs
+
+Processes:
+- auto_restart: false
+  cmd: /home/agv1/agv1/nodes/bin/ukf_node
+  deputy: HP-Z820-Workstation
+  group: Perception
+  name: UKF Node
+  realtime: false
+- auto_restart: false
+  cmd: /home/mbustos/agv1/nodes/bin/obstacle_detection_node
+  deputy: HP-Z820-Workstation
+  group: Perception
+  name: Obstacle Detection Node
+  realtime: false
+- auto_restart: false
+  cmd: /home/mbustos/agv1/nodes/bin/motion_controller_node
+  deputy: HP-Z820-Workstation
+  group: Control
+  name: Motion Control Node
+  realtime: false
+- auto_restart: false
+  cmd: /home/mbustos/agv1/nodes/bin/vlp16_node
+  deputy: HP-Z820-Workstation
+  group: Sensors
+  name: VLP 16 Lidar Node
+  realtime: false
+
+ProcmanGuiParameters:
+  refresh_rate: 0.5
+  udpm: udpm://239.255.76.67:7667?ttl=1

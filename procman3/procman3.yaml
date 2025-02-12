@@ -1,0 +1,20 @@
+#Deputy Config File
+
+#LCM Channels
+command_channel: "procman3/commands"
+deputy_info_channel: "procman3/host_info"
+proc_outputs_channel: "procman3/proc_outputs"
+deputy_procs_channel: "procman3/host_procs"
+
+# Timer Intervals in s
+monitor_interval: 1
+output_interval: 1
+deputy_status_interval: 1
+procs_status_interval: 1
+
+#timeout in s for stopping a process
+stop_timeout: 2
+
+
+# Log File
+log_file : "/home/mbustos/agv1/logs/procman.log"
