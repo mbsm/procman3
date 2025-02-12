@@ -26,9 +26,14 @@ The default channels are:
 - `procman3/host_procs`
 
 ## Usage
-./procman3 -f=conf.yaml
+./procman3 
 
-if no file is especified the procman3 defaults to procman3.yaml as config file. 
+for monitoring:
+procman3_terminal provides a quick and fast terminal based display of the remote machines and the proccess that are managed by remote procman3
+
+procman3_gui provides a gui (similar to the libbot-sheriff at this point) implemented in pyqt5 with basic functionality at this point 
+
+
 
 ## Getting Started
 1. Clone the repository:
