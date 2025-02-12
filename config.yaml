@@ -1,9 +1,0 @@
-command_channel: "procman3/commands"
-deputy_info_channel: "procman3/deputy_info"
-proc_outputs_channel: "procman3/proc_outputs"
-deputy_procs_channel: "procman3/deputy_procs"
-stop_timeout: 2
-monitor_interval: 1
-output_interval: 1
-deputy_status_interval: 1
-procs_status_interval: 1
