@@ -1,6 +1,6 @@
 package procman3_messages;
 
-struct deputy_procs_t 
+struct host_procs_t 
 {
     // useconds since Unix Epoch
     int64_t timestamp; 

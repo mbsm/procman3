@@ -9,7 +9,7 @@ struct command_t
     string group;
 
     // remote host that should execute the command
-    string host;
+    string hostname;
 
     // commands: create, start, stop, delete
     string command ;

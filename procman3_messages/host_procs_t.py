@@ -11,8 +11,8 @@ import struct
 
 import procman3_messages.proc_info_t
 
-class deputy_procs_t(object):
-    __slots__ = ["timestamp", "deputy", "num_procs", "procs"]
+class host_procs_t(object):
+    __slots__ = ["timestamp", "hostname", "num_procs", "procs"]
 
     __typenames__ = ["int64_t", "string", "int32_t", "procman3_messages.proc_info_t"]
 
@@ -20,21 +20,21 @@ class deputy_procs_t(object):
 
     def __init__(self):
         self.timestamp = 0
-        self.deputy = ""
+        self.hostname = ""
         self.num_procs = 0
         self.procs = []
 
     def encode(self):
         buf = BytesIO()
-        buf.write(deputy_procs_t._get_packed_fingerprint())
+        buf.write(host_procs_t._get_packed_fingerprint())
         self._encode_one(buf)
         return buf.getvalue()
 
     def _encode_one(self, buf):
         buf.write(struct.pack(">q", self.timestamp))
-        __deputy_encoded = self.deputy.encode('utf-8')
-        buf.write(struct.pack('>I', len(__deputy_encoded)+1))
-        buf.write(__deputy_encoded)
+        __hostname_encoded = self.hostname.encode('utf-8')
+        buf.write(struct.pack('>I', len(__hostname_encoded)+1))
+        buf.write(__hostname_encoded)
         buf.write(b"\0")
         buf.write(struct.pack(">i", self.num_procs))
         for i0 in range(self.num_procs):
@@ -46,16 +46,16 @@ class deputy_procs_t(object):
             buf = data
         else:
             buf = BytesIO(data)
-        if buf.read(8) != deputy_procs_t._get_packed_fingerprint():
+        if buf.read(8) != host_procs_t._get_packed_fingerprint():
             raise ValueError("Decode error")
-        return deputy_procs_t._decode_one(buf)
+        return host_procs_t._decode_one(buf)
     decode = staticmethod(decode)
 
     def _decode_one(buf):
-        self = deputy_procs_t()
+        self = host_procs_t()
         self.timestamp = struct.unpack(">q", buf.read(8))[0]
-        __deputy_len = struct.unpack('>I', buf.read(4))[0]
-        self.deputy = buf.read(__deputy_len)[:-1].decode('utf-8', 'replace')
+        __hostname_len = struct.unpack('>I', buf.read(4))[0]
+        self.hostname = buf.read(__hostname_len)[:-1].decode('utf-8', 'replace')
         self.num_procs = struct.unpack(">i", buf.read(4))[0]
         self.procs = []
         for i0 in range(self.num_procs):
@@ -64,21 +64,21 @@ class deputy_procs_t(object):
     _decode_one = staticmethod(_decode_one)
 
     def _get_hash_recursive(parents):
-        if deputy_procs_t in parents: return 0
-        newparents = parents + [deputy_procs_t]
-        tmphash = (0x81427c83047e0558+ procman3_messages.proc_info_t._get_hash_recursive(newparents)) & 0xffffffffffffffff
+        if host_procs_t in parents: return 0
+        newparents = parents + [host_procs_t]
+        tmphash = (0x40e0393990ab6db5+ procman3_messages.proc_info_t._get_hash_recursive(newparents)) & 0xffffffffffffffff
         tmphash  = (((tmphash<<1)&0xffffffffffffffff) + (tmphash>>63)) & 0xffffffffffffffff
         return tmphash
     _get_hash_recursive = staticmethod(_get_hash_recursive)
     _packed_fingerprint = None
 
     def _get_packed_fingerprint():
-        if deputy_procs_t._packed_fingerprint is None:
-            deputy_procs_t._packed_fingerprint = struct.pack(">Q", deputy_procs_t._get_hash_recursive([]))
-        return deputy_procs_t._packed_fingerprint
+        if host_procs_t._packed_fingerprint is None:
+            host_procs_t._packed_fingerprint = struct.pack(">Q", host_procs_t._get_hash_recursive([]))
+        return host_procs_t._packed_fingerprint
     _get_packed_fingerprint = staticmethod(_get_packed_fingerprint)
 
     def get_hash(self):
         """Get the LCM hash of the struct"""
-        return struct.unpack(">Q", deputy_procs_t._get_packed_fingerprint())[0]
+        return struct.unpack(">Q", host_procs_t._get_packed_fingerprint())[0]
 

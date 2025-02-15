@@ -8,7 +8,11 @@ import logging
 import socket
 import yaml
 import fcntl
-from procman3_messages import command_t, deputy_info_t, deputy_procs_t, proc_output_t, proc_info_t
+import sys
+
+# Import LCM message types from ../procman3_messages
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from procman3_messages import command_t, host_info_t, host_procs_t, proc_info_t, proc_output_t
 
 def get_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -52,9 +56,12 @@ def is_running(proc):
         return True
     
    
-class Procman:
-    def __init__(self, config_file="deputy_config.yaml"):
+class Procman3:
+    def __init__(self, config_file="procman3.yaml"):
         # Load configuration from YAML file
+        #get the directory of the current file
+        current_dir = os.path.dirname(os.path.realpath(__file__))
+        config_file = os.path.join(current_dir, config_file)
         with open(config_file, 'r') as file:
             config = yaml.safe_load(file)
         
@@ -74,14 +81,19 @@ class Procman:
         
         self.monitor_timer = Timer(config['monitor_interval'])
         self.output_timer = Timer(config['output_interval'])
-        self.deputy_status_timer = Timer(config['deputy_status_interval'])
+        self.host_status_timer = Timer(config['deputy_status_interval'])
         self.procs_status_timer = Timer(config['procs_status_interval'])
         
-        self.deputy_id = socket.gethostname()  # Use the hostname as the deputy's ID
+        self.hostname = socket.gethostname() 
         self.subscription = self.lc.subscribe(self.command_channel, self.command_handler)
         
         # Configure logging
-        log_dir = config.get('log_dir', './log/')
+        #get the directory of the current file
+        current_dir = os.path.dirname(os.path.realpath(__file__))
+        log_dir = os.path.join(current_dir, './log/')
+        if not os.path.exists(log_dir):
+            os.makedirs(log_dir)
+            
         log_file = os.path.join(log_dir, "procman3.log")
         logging.basicConfig(
             filename=log_file,
@@ -98,7 +110,7 @@ class Procman:
 
     def command_handler(self, channel, data):
         msg = command_t.decode(data)
-        if msg.deputy != self.deputy_id:
+        if msg.hostname != self.hostname:
             logging.info(f"Command handler: Ignored command for deputy {msg.deputy}")
             return
 
@@ -131,10 +143,10 @@ class Procman:
                 self.stop_process(process_name)
                 
         self.processes[process_name] = {'proc': None, 'cmd': proc_command,'restart': restart_on_failure, 'realtime': realtime,
-                                        'exit_code': -1, 'group': group, 'errors': '', 'status': 'T',
+                                        'exit_code': -1, 'group': group, 'errors': '', 'state': 'T', 'status': 'S', 'runtime': 0,
                                         'stdout': '', 'stderr': ''} 
         
-        logging.info(f"Create Process: Created process: {process_name} with command: {proc_command}")
+        logging.info(f"Create Process: Created process: {process_name} with command: {proc_command} auto_restart: {restart_on_failure} and realtime: {realtime}")
             
             
     def start_process(self, process_name):
@@ -162,12 +174,12 @@ class Procman:
                 
                 # update the process table with the new process
                 self.processes[process_name]['proc'] = proc
-                self.processes[process_name]['status'] = 'R'
+                self.processes[process_name]['state'] = 'R'                
                 logging.info(f"Start Process: Started process: {process_name} with PID {proc.pid}")
 
                 if realtime:
                     try:
-                        os.sched_setscheduler(proc.pid, os.SCHED_FIFO, os.sched_param(1))
+                        os.sched_setscheduler(proc.pid, os.SCHED_FIFO, os.sched_param(40))
                         logging.info(f"Start Process: Set real-time priority and FIFO scheduler for process: {process_name} with PID {proc.pid}")
                     except PermissionError:
                         logging.error(f"Start Process: Failed to set real-time priority for process {process_name}: Permission denied.")
@@ -178,7 +190,8 @@ class Procman:
 
             except Exception as e:
                 logging.error(f"Start Process: Failed to start process {process_name}: {e}")
-                self.processes[process_name]['status'] = 'S'
+                self.processes[process_name]['state'] = 'F'
+                self.processes[process_name]['proc'] = None
                 self.processes[process_name]['errors'] = str(e)
         
     
@@ -187,7 +200,7 @@ class Procman:
             proc_info = self.processes[process_name]
             proc = proc_info['proc']
             
-            if(proc and proc_info['status'] == 'T'):
+            if(proc and proc_info['state'] == 'T'):
                 logging.info(f"Stop Process: Process {process_name} is already stopped.")
                 return
             
@@ -199,13 +212,13 @@ class Procman:
                 proc.wait(timeout=self.stop_timeout)  # Use the stop timeout variable
                 logging.info(f"Stop Process: Gracefully stopped process: {process_name} with PID {proc.pid}")
                 self.processes[process_name]['exit_code'] = proc.returncode
-                self.processes[process_name]['status'] = 'T'
+                self.processes[process_name]['state'] = 'T'
                 
             except psutil.TimeoutExpired:
                 proc.kill()  # Force kill
                 logging.warning(f"Stop Process: Forcefully killed process: {process_name} with PID {proc.pid}")
                 self.processes[process_name]['exit_code'] = proc.returncode
-                self.processes[process_name]['status'] = 'T'
+                self.processes[process_name]['state'] = 'K'
             
         else:
             logging.warning(f"Stop Process: Process {process_name} not found, ignoring command.")
@@ -232,17 +245,18 @@ class Procman:
         proc = procces['proc']
                
         # check if the process is stoped and update the exit code in the process table
-        if proc and procces['status'] == 'T':
+        if proc and procces['state'] == 'T':
             procces['exit_code'] = proc.poll()
             return
     
         # check if the process should be running
-        if procces['status'] == 'R':
-            if is_running(proc):
+        if procces['state'] == 'R':
+            if not is_running(proc):
                 logging.warning(f"Monitor Process: Process {process_name} found stopped.")
-                procces['status'] = 'T'
-                procces['exit_code'] = proc.returncode
-                cmd = procces['cmd']
+                procces['state'] = 'F'
+                procces['exit_code'] = proc.poll()
+                procces['proc'] = None
+
                 if procces['restart']:
                     logging.info(f"Monitor Process: Restarting process {process_name}.")
                     self.start_process(process_name)
@@ -251,7 +265,7 @@ class Procman:
                 procces['stdout'] = proc.stdout.read1().decode('utf-8')
                 procces['stderr'] = proc.stderr.read1().decode('utf-8')
     
-    def publish_deputy_info(self):
+    def publish_host_info(self):
         
         #time
         current_time = time.time()
@@ -274,30 +288,45 @@ class Procman:
 
         # Gather system metrics
         cpu_usage = psutil.cpu_percent(interval=None) / 100.0  # Non-blocking
-        mem_usage = psutil.virtual_memory().percent / 100.0
+        
         uptime = int(time.time() - psutil.boot_time())  # Convert to milliseconds
+        
+        mem_total = psutil.virtual_memory().total
+        mem_used = psutil.virtual_memory().used
+        mem_free = psutil.virtual_memory().free
+        mem_usage = psutil.virtual_memory().percent / 100.0
         
 
         # Create status message
-        msg = deputy_info_t()
+        msg = host_info_t()
         msg.timestamp = int(time.time() * 1e6)
-        msg.deputy = self.deputy_id
+        msg.hostname = self.hostname
         msg.ip = get_ip()
-        msg.num_procs = len(self.processes)
+        
+        #cpu info
+        msg.cpus = psutil.cpu_count()
         msg.cpu_usage = cpu_usage
+        
+        #memory info
+        msg.mem_total = mem_total
+        msg.mem_free = mem_free
+        msg.mem_used = mem_used
         msg.mem_usage = mem_usage
+        
+        #network info
         msg.network_sent = sent_kbps/1024
         msg.network_recv = recv_kbps/1024
+        
+        #uptime
         msg.uptime = uptime
 
         # Send status message over LCM
         self.lc.publish(self.deputy_info_channel, msg.encode())
-        #logging.info("Deputy Status Publish: Sent status report.")
     
-    def publish_deputy_procs(self):
-        msg = deputy_procs_t()
+    def publish_host_procs(self):
+        msg = host_procs_t()
         msg.timestamp = int(time.time() * 1e6)
-        msg.deputy = self.deputy_id
+        msg.hostname = self.hostname
         msg.procs = []
         msg.num_procs = 0
         
@@ -307,30 +336,33 @@ class Procman:
                         
             proc = proc_info['proc']
             if proc and is_running(proc):
+                
                 msg_proc.cpu = proc.cpu_percent(interval=None) / 100.0  # Non-blocking
                 mem_info = proc.memory_info()
-                msg_proc.mem = mem_info.rss // 1024  # Convert to KB
+                msg_proc.mem_rss = mem_info.rss // 1024  # Convert to KB
+                msg_proc.mem_vms = mem_info.vms // 1024  # Convert to KB
+                
                 msg_proc.priority = proc.nice()
                 msg_proc.pid = proc.pid
+                msg_proc.ppid = proc.ppid()
                 msg_proc.exit_code = -1  # Indicate that the process is still running
                 msg_proc.errors = proc_info["errors"]
-                msg_proc.status = proc_info['status']
+                msg_proc.status = proc.status()
+                msg_proc.state = proc_info['state']
                 msg_proc.group = proc_info['group']
                 msg_proc.cmd = proc_info['cmd']
                 msg_proc.realtime = proc_info['realtime']
+                msg_proc.auto_restart = proc_info['restart']
                 msg_proc.runtime = int(time.time() - proc.create_time())
         
             else:
-                msg_proc.cpu = 0.0
-                msg_proc.mem = 0
-                msg_proc.priority = -1
                 msg_proc.pid = -1
                 msg_proc.exit_code = proc_info.get('exit_code', -1)
                 msg_proc.errors = proc_info["errors"]
                 msg_proc.status = proc_info['status']
+                msg_proc.state = proc_info['state']
                 msg_proc.group = proc_info['group']
                 msg_proc.cmd = proc_info['cmd']
-                msg_proc.runtime = 0
                 
 
             msg.procs.append(msg_proc)
@@ -346,7 +378,7 @@ class Procman:
             msg = proc_output_t()
             msg.timestamp = int(time.time() * 1e6)
             msg.name = process_name
-            msg.deputy = self.deputy_id
+            msg.hostname = self.hostname
             msg.stdout = proc_info['stdout'] + proc_info['stderr'] 
             self.lc.publish(self.proc_outputs_channel, msg.encode())
             
@@ -367,13 +399,13 @@ class Procman:
                 # Periodically publish process outputs
                 self.publish_procs_outputs()
 
-            if self.deputy_status_timer.timeout():
+            if self.host_status_timer.timeout():
                 # Periodically publish deputy status
-                self.publish_deputy_info()
+                self.publish_host_info()
             
             if self.procs_status_timer.timeout():
                 # Periodically gather and publish the status of individual processes
-                self.publish_deputy_procs()
+                self.publish_host_procs()
 
 
 def daemonize():
@@ -390,5 +422,5 @@ def daemonize():
 
 if __name__ == "__main__":
     #daemonize()
-    deputy = Deputy()
-    deputy.run()
+    procman = Procman3()
+    procman.run()

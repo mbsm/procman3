@@ -10,17 +10,16 @@ except ImportError:
 import struct
 
 class command_t(object):
-    __slots__ = ["name", "group", "sheriff", "deputy", "command", "proc_command", "auto_restart", "realtime"]
+    __slots__ = ["name", "group", "hostname", "command", "proc_command", "auto_restart", "realtime"]
 
-    __typenames__ = ["string", "string", "string", "string", "string", "string", "boolean", "boolean"]
+    __typenames__ = ["string", "string", "string", "string", "string", "boolean", "boolean"]
 
-    __dimensions__ = [None, None, None, None, None, None, None, None]
+    __dimensions__ = [None, None, None, None, None, None, None]
 
     def __init__(self):
         self.name = ""
         self.group = ""
-        self.sheriff = ""
-        self.deputy = ""
+        self.hostname = ""
         self.command = ""
         self.proc_command = ""
         self.auto_restart = False
@@ -41,13 +40,9 @@ class command_t(object):
         buf.write(struct.pack('>I', len(__group_encoded)+1))
         buf.write(__group_encoded)
         buf.write(b"\0")
-        __sheriff_encoded = self.sheriff.encode('utf-8')
-        buf.write(struct.pack('>I', len(__sheriff_encoded)+1))
-        buf.write(__sheriff_encoded)
-        buf.write(b"\0")
-        __deputy_encoded = self.deputy.encode('utf-8')
-        buf.write(struct.pack('>I', len(__deputy_encoded)+1))
-        buf.write(__deputy_encoded)
+        __hostname_encoded = self.hostname.encode('utf-8')
+        buf.write(struct.pack('>I', len(__hostname_encoded)+1))
+        buf.write(__hostname_encoded)
         buf.write(b"\0")
         __command_encoded = self.command.encode('utf-8')
         buf.write(struct.pack('>I', len(__command_encoded)+1))
@@ -75,10 +70,8 @@ class command_t(object):
         self.name = buf.read(__name_len)[:-1].decode('utf-8', 'replace')
         __group_len = struct.unpack('>I', buf.read(4))[0]
         self.group = buf.read(__group_len)[:-1].decode('utf-8', 'replace')
-        __sheriff_len = struct.unpack('>I', buf.read(4))[0]
-        self.sheriff = buf.read(__sheriff_len)[:-1].decode('utf-8', 'replace')
-        __deputy_len = struct.unpack('>I', buf.read(4))[0]
-        self.deputy = buf.read(__deputy_len)[:-1].decode('utf-8', 'replace')
+        __hostname_len = struct.unpack('>I', buf.read(4))[0]
+        self.hostname = buf.read(__hostname_len)[:-1].decode('utf-8', 'replace')
         __command_len = struct.unpack('>I', buf.read(4))[0]
         self.command = buf.read(__command_len)[:-1].decode('utf-8', 'replace')
         __proc_command_len = struct.unpack('>I', buf.read(4))[0]
@@ -90,7 +83,7 @@ class command_t(object):
 
     def _get_hash_recursive(parents):
         if command_t in parents: return 0
-        tmphash = (0x54352b9d9f69aa72) & 0xffffffffffffffff
+        tmphash = (0x36459f0534860637) & 0xffffffffffffffff
         tmphash  = (((tmphash<<1)&0xffffffffffffffff) + (tmphash>>63)) & 0xffffffffffffffff
         return tmphash
     _get_hash_recursive = staticmethod(_get_hash_recursive)

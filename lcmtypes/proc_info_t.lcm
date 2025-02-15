@@ -9,10 +9,13 @@ struct proc_info_t
     string group;
 
     // deputy running execting the proccess
-    string deputy;
+    string hostname;
 
-    // status of the procces 0: stoped, 1 running
+    // procman3 state of the procces 
     string state;
+
+    // status of the procces
+    string status;
  
     // errors 
     string errors;
@@ -24,17 +27,12 @@ struct proc_info_t
     float cpu;
     
     // Rss memory
-    int32_t rss_mem;
+    int32_t mem_rss;
 
-    //uss memory
-    int32_t uss_mem;
-    
     // virtual memory size
-    int32_t vms_mem;
+    int32_t mem_vms;
 
-    // swap 
-    int32_t swap_memory;
-
+    
     // priority asigned to the process -1 if stopped
     int32_t priority;
 
@@ -44,8 +42,6 @@ struct proc_info_t
     // is oid if the parent process
     int32_t ppid;
 
-    // os status
-    string status;
 
     // auto restart flag asigned to the proccess
     boolean auto_restart;
